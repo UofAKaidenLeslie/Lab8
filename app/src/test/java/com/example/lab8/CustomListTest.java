@@ -57,5 +57,16 @@ public class CustomListTest {
         assertTrue(list.hasCity(sameCity));
     }
 
+    @Test
+    void deleteCityTest() {
+        list = MockCityListPopulated();
+        assertEquals(1, list.getCount());
+        City diffCity = new City("Regina", "Saskatchewan");
+        City sameCity = new City("Edmonton", "Alberta");
+        list.deleteCity(diffCity);
+        assertEquals(1, list.getCount());
+        list.deleteCity(sameCity);
+        assertEquals(0, list.getCount());
+    }
 
 }
